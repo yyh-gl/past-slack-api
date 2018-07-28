@@ -5,22 +5,12 @@ module Request
 
   def send_request(method, params={})
     result = JSON.parse(Net::HTTP.get(create_uri(method, params)))
-    puts 'aaaa'
-    puts
-    puts method
-    puts
-    puts params
-    puts
-    puts create_uri(method, params)
-    puts
-    puts 'aaaa'
     if result['ok']
       Rails.cache.fetch("#{method}::#{Digest::SHA256.hexdigest(params.to_json)}", expires_in: CACHE_EXPIRES) do
         result
       end
-    else
-      raise result['error']
     end
+    result
   end
 
   private
