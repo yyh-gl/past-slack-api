@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
   ## APIリクエスト：メソッド名
   # channel
   REQ_CHANNEL_LIST = 'channels.list'.freeze
-  REQ_CHANNEL_INFO = 'channels.info'.freeze
+  REQ_CHANNEL_INFO = 'channels.history'.freeze
 
   ## エラーハンドリング：エラーとステータスコードの結びつけ
   # TODO: エラーシンボルを追加していく
