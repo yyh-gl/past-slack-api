@@ -29,11 +29,6 @@ class Api::V1::ChannelsController < ApplicationController
     json_response(channel)
   end
 
-  def api_private_show
-    channel = send_slack_request(REQ_PRIVATE_CHANNEL_INFO, channel_params)
-    json_response(channel)
-  end
-
   def db_public_index
     channels = Channel::fetch_channels('public')
     json_response(channels)
