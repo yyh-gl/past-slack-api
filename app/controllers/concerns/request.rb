@@ -3,7 +3,7 @@ module Request
 
   CACHE_EXPIRES = 5.seconds
 
-  def send_request(method, params={})
+  def send_slack_request(method, params={})
     result = JSON.parse(Net::HTTP.get(create_uri(method, params)))
     if result['ok']
       Rails.cache.fetch("#{method}::#{Digest::SHA256.hexdigest(params.to_json)}", expires_in: CACHE_EXPIRES) do
