@@ -25,7 +25,7 @@ class Api::V1::ChannelsController < ApplicationController
 
   def api_show
     channel = send_slack_request(REQ_PUBLIC_CHANNEL_INFO, channel_params)
-    channel = send_slack_request(REQ_PRIVATE_CHANNEL_INFO, channel_params) if !channel['ok']
+    channel = send_slack_request(REQ_PRIVATE_CHANNEL_INFO, channel_params) unless channel['ok']
     json_response(channel)
   end
 
