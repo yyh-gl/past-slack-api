@@ -1,12 +1,17 @@
 class Api::V1::MessagesController < ApplicationController
+  require 'json'
 
   # 全チャンネルのメッセージを取得（エクスポート）
   def index
-    public = Channel::fetch_channels('public')
-    private = Channel::fetch_channels('private')
-    channels = public['channels'] + private['channels']
+    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")#.map { |ch| File.basename(ch) }
     channels.each do |ch|
-      # `#{APP_ROOT_PATH}/lib/slack-dump/slack-dump #{ch['ch_id']}`
+      Dir.glob("#{ch}/*").each do |json_file|
+        File.open(json_file) do |data|
+          JSON.load(data).each do |hash|
+            puts hash
+          end
+        end
+      end
     end
   end
 
