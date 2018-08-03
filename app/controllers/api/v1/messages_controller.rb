@@ -22,7 +22,7 @@ class Api::V1::MessagesController < ApplicationController
 
   # 全チャンネルのメッセージをDBに保存
   def save_all_messages
-
+lb
   end
 
 end

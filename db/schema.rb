@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_043144) do
+ActiveRecord::Schema.define(version: 2018_08_03_095522) do
 
   create_table "channels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ch_id", null: false
     t.string "name", null: false
     t.string "ch_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "channel_name"
+    t.string "main_type"
+    t.string "sub_type"
+    t.string "user"
+    t.text "text"
+    t.string "client_msg_id"
+    t.string "ts"
+    t.text "reactions"
+    t.string "inviter"
+    t.string "edited_user"
+    t.string "edited_ts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

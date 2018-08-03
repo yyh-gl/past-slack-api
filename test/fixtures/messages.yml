@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  subtype: MyString
+  user: MyString
+  text: MyText
+  client_msg_id: MyString
+  ts: MyString
+  reactions: MyText
+  inviter: MyString
+  edited_user: MyString
+  edited_ts: MyString
+
+two:
+  type: 
+  subtype: MyString
+  user: MyString
+  text: MyText
+  client_msg_id: MyString
+  ts: MyString
+  reactions: MyText
+  inviter: MyString
+  edited_user: MyString
+  edited_ts: MyString
