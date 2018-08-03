@@ -3,7 +3,7 @@ class Api::V1::MessagesController < ApplicationController
 
   # 全チャンネルのメッセージを取得（エクスポート）
   def index
-    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")#.map { |ch| File.basename(ch) }
+    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")
     channels.each do |ch|
       Dir.glob("#{ch}/*").each do |json_file|
         File.open(json_file) do |data|
@@ -22,7 +22,7 @@ class Api::V1::MessagesController < ApplicationController
 
   # 全チャンネルのメッセージをDBに保存
   def save_all_messages
-    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")#.map { |ch| File.basename(ch) }
+    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")
     channels.each do |ch|
       Dir.glob("#{ch}/*").each do |json_file|
         File.open(json_file) do |data|
