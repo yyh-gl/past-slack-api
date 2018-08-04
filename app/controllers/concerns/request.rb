@@ -9,8 +9,9 @@ module Request
       Rails.cache.fetch("#{method}::#{Digest::SHA256.hexdigest(params.to_json)}", expires_in: CACHE_EXPIRES) do
         result
       end
+    else
+      result
     end
-    result
   end
 
   private
