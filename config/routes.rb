@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get '/channels/db/:channel', to: 'channels#db_show'
 
       get '/messages', to: 'messages#index'
-      get '/messages/:channel', to: 'messages#show'
+      get '/messages/search', to: 'messages#show'
     end
   end
 end
