@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
       get '/messages', to: 'messages#index'
       get '/messages/search', to: 'messages#show'
+
+      get '/users', to: 'users#index'
     end
   end
 end

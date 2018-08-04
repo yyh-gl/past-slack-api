@@ -8,6 +8,7 @@ class ApplicationController < ActionController::API
 
   ## APIリクエスト：メソッド名
   # channel
+  REQ_USER_LIST = 'users.list'.freeze
   REQ_PUBLIC_CHANNEL_LIST = 'channels.list'.freeze
   REQ_PUBLIC_CHANNEL_INFO = 'channels.history'.freeze
   REQ_PRIVATE_CHANNEL_LIST = 'groups.list'.freeze
