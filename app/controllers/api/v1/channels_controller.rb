@@ -1,6 +1,8 @@
 class Api::V1::ChannelsController < ApplicationController
   before_action :set_token
 
+  # TODO: チャンネルをDBに保存するのはrakeタスクに移す
+
   def api_public_index
     channels = send_slack_request(REQ_PUBLIC_CHANNEL_LIST, channel_params)
     channels['channels'].each do |ch|
