@@ -7,10 +7,12 @@ class ApplicationController < ActionController::API
   APP_ROOT_PATH = Rails.root
 
   ## APIリクエスト：メソッド名
-  # channel
+  # users
   REQ_USER_LIST = 'users.list'.freeze
+  # channels
   REQ_PUBLIC_CHANNEL_LIST = 'channels.list'.freeze
   REQ_PUBLIC_CHANNEL_INFO = 'channels.history'.freeze
+  # groups
   REQ_PRIVATE_CHANNEL_LIST = 'groups.list'.freeze
   REQ_PRIVATE_CHANNEL_INFO = 'groups.history'.freeze
 
