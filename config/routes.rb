@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       get '/channels/db/private', to: 'channels#db_private_index'
       get '/channels/db/:channel', to: 'channels#db_show'
 
-      get '/messages', to: 'messages#save_all_messages'
+      get '/messages', to: 'messages#index'
+      get '/messages/:channel', to: 'messages#show'
     end
   end
 end

@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2018_08_03_095522) do
     t.string "inviter"
     t.string "edited_user"
     t.string "edited_ts"
+    t.string "unfurl_links"
+    t.string "unfurl_media"
+    t.string "thread_ts"
+    t.string "is_thread_broadcast"
+    t.string "thread_channel_id"
+    t.string "thread_root_client_msg_id"
+    t.string "thread_root_ts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

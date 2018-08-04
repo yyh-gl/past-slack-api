@@ -18,37 +18,42 @@ namespace :message do
               reactions: hash['reactions'],
               inviter: hash['inviter'],
               edited_user: hash['edited_user'],
-              edited_ts: hash['edited_ts']
+              edited_ts: hash['edited_ts'],
+              unfurl_links: hash['unfurl_links'],
+              unfurl_media: hash['unfurl_media'],
+              thread_ts: hash['thread_ts'],
+              is_thread_broadcast: hash['is_thread_broadcast'],
+              thread_channel_id: hash['thread_channel_id'],
+              thread_root_client_msg_id: hash['thread_root_client_msg_id'],
+              thread_root_ts: hash['thread_root_ts']
             )
           rescue ActiveRecord::StatementInvalid => e
             if e.cause.class == Mysql2::Error && e.cause.message.match(/^Incorrect string value/)
               puts '-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'
               puts '[DEBUG!] MySQLに格納できない文字を検知しました。DBには格納しません。'
-              puts "channel_name ： #{File.basename(ch)}"
-              puts "main_type    ： #{hash['type']}"
-              puts "sub_type     ： #{hash['subtype']}"
-              puts "user         ： #{hash['user']}"
-              puts "text         ： #{hash['text'].gsub(/&gt;/, '>')}"
-              puts "client_msg_id： #{hash['client_msg_id']}"
-              puts "ts           ： #{hash['ts']}"
-              puts "reactions    ： #{hash['reactions']}"
-              puts "inviter      ： #{hash['inviter']}"
-              puts "edited_user  ： #{hash['edited_user']}"
-              puts "edited_ts    ： #{hash['edited_ts']}"
+              puts "channel_name             ： #{File.basename(ch)}"
+              puts "main_type                ： #{hash['type']}"
+              puts "sub_type                 ： #{hash['subtype']}"
+              puts "user                     ： #{hash['user']}"
+              puts "text                     ： #{hash['text'].gsub(/&gt;/, '>')}"
+              puts "client_msg_id            ： #{hash['client_msg_id']}"
+              puts "ts                       ： #{hash['ts']}"
+              puts "reactions                ： #{hash['reactions']}"
+              puts "inviter                  ： #{hash['inviter']}"
+              puts "edited_user              ： #{hash['edited_user']}"
+              puts "edited_ts                ： #{hash['edited_ts']}"
+              puts "unfurl_links             ： #{hash['unfurl_links']}"
+              puts "unfurl_media             ： #{hash['unfurl_media']}"
+              puts "thread_ts                ： #{hash['thread_ts']}"
+              puts "is_thread_broadcast      ： #{hash['is_thread_broadcast']}"
+              puts "thread_channel_id        ： #{hash['thread_channel_id']}"
+              puts "thread_root_client_msg_id： #{hash['thread_root_client_msg_id']}"
+              puts "thread_root_ts           ： #{hash['thread_root_ts']}"
               puts '-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-'
             end
           end
         end
       end
-    end
-  end
-
-  private
-
-  def validate_exist(data)
-    #type:string subtype:string user:string text:text client_msg_id:string ts:string reactions:text inviter:string edited_user:string edited_ts:string
-    if data['type'].blank?
-    elsif data['subtype'].blank?
     end
   end
 

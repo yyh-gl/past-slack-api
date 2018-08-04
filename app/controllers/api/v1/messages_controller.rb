@@ -1,28 +1,15 @@
 class Api::V1::MessagesController < ApplicationController
   require 'json'
 
-  # 全チャンネルのメッセージを取得（エクスポート）
+  # 全チャンネルのメッセージを取得
   def index
-    channels = Dir.glob("#{APP_ROOT_PATH}/log/slack/messages/*")
-    channels.each do |ch|
-      Dir.glob("#{ch}/*").each do |json_file|
-        File.open(json_file) do |data|
-          JSON.load(data).each do |hash|
-            puts hash
-          end
-        end
-      end
-    end
+    messages = Message.all
+    json_response(messages.to_json)
   end
 
-  # 指定チャンネルのメッセージを取得（エクスポート）
+  # 指定チャンネルのメッセージを取得
   def show
-
-  end
-
-  # 全チャンネルのメッセージをDBに保存
-  def save_all_messages
-lb
+    
   end
 
 end

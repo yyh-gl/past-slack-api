@@ -12,6 +12,13 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.string :inviter
       t.string :edited_user
       t.string :edited_ts
+      t.string :unfurl_links
+      t.string :unfurl_media
+      t.string :thread_ts
+      t.string :is_thread_broadcast
+      t.string :thread_channel_id
+      t.string :thread_root_client_msg_id
+      t.string :thread_root_ts
 
       t.timestamps
     end
