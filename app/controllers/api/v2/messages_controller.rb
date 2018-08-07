@@ -1,21 +1,27 @@
-class Api::V1::MessagesController < ApplicationController
+class Api::V2::MessagesController < ApplicationController
   require 'json'
 
   # 全チャンネルのメッセージを取得
   def index
     messages = Message.all
-    json_response(messages: messages)
+    res_message = create_message_response(messages)
+    json_response(res_message)
   end
 
   # 指定チャンネルのメッセージを取得
   def show
-    keyword = get_search_keyword(params)
+    keyword = get_search_keyword(message_params)
     messages = Message.where(keyword)
-    messages = messages.select { |message| message['text'].include?('そうですね') } if params[:text].present?
-    json_response(messages: messages)
+    messages = messages.select { |message| message['text'].include?(message_params[:text]) } if message_params[:text].present?
+    res_message = create_message_response(messages)
+    json_response(res_message)
   end
 
   private
+
+  def message_params
+    params.permit(:text, :channel, :user)
+  end
 
   def get_search_keyword(params)
     keyword = []
