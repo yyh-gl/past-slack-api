@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V2::UsersController < ApplicationController
 
   def index
     users = send_slack_request(REQ_USER_LIST)
