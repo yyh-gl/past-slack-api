@@ -24,4 +24,7 @@ class ApplicationController < ActionController::API
   ERROR = {
     channel_not_found: :not_found
   }.freeze
+
+  # キャッシュ保持期間
+  # CACHE_EXPIRES = 1.weeks
 end

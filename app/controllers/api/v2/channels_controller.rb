@@ -1,13 +1,13 @@
 class Api::V2::ChannelsController < ApplicationController
 
   def public_index
-    channels = Channel.where(ch_type: 'public')
+    channels = Channel.fetch_public_channels
     res_channels = create_channel_response(channels)
     json_response(res_channels)
   end
 
   def private_index
-    channels = Channel.where(ch_type: 'private')
+    channels = Channel.fetch_private_channels
     res_channels = create_channel_response(channels)
     json_response(res_channels)
   end

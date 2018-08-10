@@ -1,7 +1,8 @@
 module Request
   require 'net/http'
 
-  CACHE_EXPIRES = 5.seconds
+  # キャッシュ保持期間
+  CACHE_EXPIRES = 1.weeks
 
   def send_slack_request(method, params={})
     result = JSON.parse(Net::HTTP.get(create_uri(method, params)))
