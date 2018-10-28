@@ -17,6 +17,12 @@ class Api::V2::MessagesController < ApplicationController
     json_response(res_message)
   end
 
+  # メッセージ最終更新日時を取得
+  def get_updated_date
+    message = Message.find(1)
+    json_response({ updated_at: message[:updated_at] })
+  end
+
   private
 
   def message_params

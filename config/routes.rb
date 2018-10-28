@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
       get '/messages', to: 'messages#index'
       get '/messages/search', to: 'messages#show'
+      get '/messages/last_update', to: 'messages#get_updated_date'
 
       get '/users', to: 'users#index'
     end
