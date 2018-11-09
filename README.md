@@ -9,14 +9,14 @@
 
             - ↓sshのconfigファイルの中身
             ```
-Host isdl-light-local
-  HostName 172.20.11.97
-  User isdl-light
+            Host isdl-light-local
+              HostName 172.20.11.97
+              User isdl-light
 
-Host isdl-light-global
-  HostName 157.7.129.202
-  User isdl-light
-  Port 46022
+            Host isdl-light-global
+              HostName 157.7.129.202
+              User isdl-light
+              Port 46022
             ```
 
 3. `/Users/isdl-light/Server/past-slack-api/log/slack/messages` 内のデータを全て削除
