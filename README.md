@@ -7,6 +7,7 @@
     - `scp -r [送信するディレクトリのパス].zip isdl-light-global:~/messages.zip`
     - `scp -r [送信するディレクトリのパス].zip isdl-light-local:~/messages.zip`
       - ↓sshのconfigファイルの中身
+
 ```
 Host isdl-light-local
   HostName 172.20.11.97
